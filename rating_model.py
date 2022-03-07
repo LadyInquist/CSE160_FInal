@@ -46,4 +46,32 @@ class RatingModel:
         test_predictions = model.predict(features_test)
         print('Test  accuracy:',
                 accuracy_score(labels_test, test_predictions))
+    def to_month(release_date):
+        release_date = str(release_date).split('(')[0]
+        if len(release_date.strip().split(' ')) >= 3:
+            month = dt.datetime.strptime(release_date.strip(),
+                                        "%B %d, %Y")
+            return int(month.month)
+        else:
+            return None
+# Might not need this function at all actually
 
+
+    def movies_by_weekday(data):
+        """
+        Assuming that the data parameter is the IMDB dataframe,
+        plots lines of best fit for both budget and profit
+        as a factor of IMDB score.
+        """
+        r = data['rating'] == "R"
+        pg = data['rating'] == "PG"
+        pg13 = data['rating'] == "PG-13"
+        data = data[r | pg | pg13].copy()
+        data['month'] = data["released"].apply(to_month)
+        data = data.sort_values('month')
+        print(data)
+        data = data[["rating", "score", "genre", "budget", "company", "runtime",
+                    "month"]]
+
+        sns.catplot(x='month', col='rating', kind='count', data=data)
+        plt.savefig('/home/weekday2.png')
