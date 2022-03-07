@@ -3,3 +3,25 @@ CSE 163
 
 To run this program, run main.py.
 Output will be images in the same folder.
+
+Movies.csv has several columns, which can be input as parameters for functions
+to change what visualizations display. Assume that the columns are categorical
+unless stated otherwise.
+
+<ul>
+  <li> name: The name of the movie</li>
+  <li> rating: The age rating of the movie, from G(general audiences) to R(restricted)</li>
+  <li> genre: The genre of the movie</li>
+  <li>year: Release year of the movie, can be used as a numerical value</li>
+  <li>release: Full release date of the movie</li>
+  <li>score: The IMDB user score of the movie</li>
+  <li>votes: The amount of IMDB user reviews/ratings the movie recived</li>
+  <li>director: The director of the movie.</li>
+  <li>writer: The writer of the movie.</li>
+  <li>star: Lead role of the movie</li>
+  <li>country: The country where the movie was initially released.</li>
+  <li>budget: The budget for the movie, in USD</li>
+  <li>gross: The revenue for the movie, in USD</li>
+  <li>company: The company that published the movie</li>
+  <li>runtime: The runtime of the movie, in minutes</li>
+</ul>
