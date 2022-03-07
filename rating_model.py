@@ -51,9 +51,9 @@ class RatingModel:
         if len(release_date.strip().split(' ')) >= 3:
             month = dt.datetime.strptime(release_date.strip(),
                                         "%B %d, %Y")
-            return month.month
+            return int(month.month)
         else:
-            return 0
+            return None
 # Might not need this function at all actually
 
 
@@ -66,7 +66,7 @@ class RatingModel:
         r = data['rating'] == "R"
         pg = data['rating'] == "PG"
         pg13 = data['rating'] == "PG-13"
-        data = data[r | pg | pg13]
+        data = data[r | pg | pg13].copy()
         data['month'] = data["released"].apply(to_month)
         data = data.sort_values('month')
         print(data)
