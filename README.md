@@ -1,7 +1,8 @@
 Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
 CSE 163
 
-To run this program, run main.py.
+To run this program, run main.py. Make sure that pandas, plotly, seaborne, and
+other requisite libaries are installed.
 Output will be images in the same folder.
 
 Movies.csv has several columns, which can be input as parameters for functions
