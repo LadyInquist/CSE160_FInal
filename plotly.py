@@ -15,7 +15,8 @@ import pandas as pd
 import plotly.express as px
 import plotly.offline as off
 
-CROP_AMOUNT = 500
+CROP_AMOUNT = 500 # amount of rows that a crop takes
+
 
 def main():
     """
@@ -54,8 +55,8 @@ def rating_scatter(data, second_factor="budget", third_factor="genre", crop=""):
     based on an imdb dataframe, data, alongside 2 columns within that dataframe,
     third_factor. Assumes that the given dataset is the correct IMDB dataset,
     second_factor is a column with non-categorical values,
-    and that second and third_factor are valid column names. Outputs it as an image,
-    with the name dependent on the column.
+    and that second and third_factor are valid column names. Outputs it as an
+    image, with the name dependent on the column.
     """
     data = data.sort_values("score", ascending=False)
     crop = crop.lower()
@@ -65,7 +66,8 @@ def rating_scatter(data, second_factor="budget", third_factor="genre", crop=""):
         data = data.tail(CROP_AMOUNT)
     else:
         crop = "All"
-    title_concat = second_factor + " and " + third_factor + " as factors in " + crop + " scored movies"
+    title_concat = second_factor + " and " + third_factor +\
+         " as factors in " + crop + " scored movies"
     title_concat = title_concat.capitalize()
     fig = px.scatter(data,
                      x=second_factor,
