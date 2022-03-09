@@ -6,6 +6,7 @@ def main():
     data = pd.read_csv("movies.csv")
     data = data.dropna()
     ml_regressor(data)
+    
     print("testing part 2")
 
 

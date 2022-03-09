@@ -1,4 +1,7 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import datetime as dt
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeRegressor
@@ -7,7 +10,7 @@ from sklearn.model_selection import train_test_split
 
 
 def ml_regressor(data):
-    data = data[["budget", "score", "company"]]
+    data = data[["budget", "score", "company", "director"]]
     features = data.loc[:, data.columns != "score"]
     features = pd.get_dummies(features)
     labels = data["score"]
@@ -23,6 +26,25 @@ def ml_regressor(data):
     test_predictions = model.predict(features_test)
     print('Test  MSE:',
             mean_squared_error(labels_test, test_predictions))
+
+def data_preprocess(data):
+    r = data['rating'] == "R"
+    pg = data['rating'] == "PG"
+    pg13 = data['rating'] == "PG-13"
+    data = data[r | pg | pg13].copy()
+    data = data[["budget", "score", "company", "director"]]
+    features = data.loc[:, data.columns != "score"]
+    features = pd.get_dummies(features)
+    labels = data["score"]
+    mse_scores = {}
+    for i in range(0, 1, 0.1):
+        features_train, features_test, labels_train, labels_test = \
+            train_test_split(features, labels, test_size=i)
+        model = DecisionTreeRegressor()
+        model.fit(features_train, labels_train)
+        test_predictions = model.predict(features_test)
+        mse_scores[i] = mean_squared_error(labels_test, test_predictions)
+    print(mse_scores)
 
 def ml_classifier(self):
     data = data[["budget", "score", "rating", "company"]]
