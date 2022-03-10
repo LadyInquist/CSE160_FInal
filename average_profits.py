@@ -11,7 +11,6 @@ def avg_profit(data, production):
     prod_data = data[[production, 'profit']]
     prod_data = prod_data.groupby([production]).mean()
     prod_data.reset_index(inplace = True)
-    # not reading after groupby
     prod_data = prod_data.sort_values(by='profit', ascending=False)
     prod_data = prod_data.head(10)
 
