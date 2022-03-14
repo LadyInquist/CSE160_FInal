@@ -1,5 +1,4 @@
-# CSE 163
-# Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
+# CSE 163: Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
 
 To run this program, run main.py. Make sure that pandas, plotly, seaborne, and
 other requisite libaries are installed.
