@@ -35,20 +35,14 @@ def avg_profit(data, production):
 
 def profits_by_year(data, production):
     data['profit'] = (data['gross'] - data['budget']) / 100000
-    prod_data = data[[production, 'year', 'profit']]
-    prod_data = prod_data.groupby(['year']).mean()
+    prod_data = data.groupby(['year']).mean()
     prod_data.reset_index(inplace = True)
 
     sns.relplot(x='year', y='profit', data=prod_data, kind="line", height=5, aspect=2)
 
-    if production == 'company':
-        production_label = 'Companies'
-    else:
-        production_label = (production.capitalize() + 's')
-
-    plt.title('Average Profits of ' + production_label +' over Time', weight='bold').set_fontsize('18')
+    plt.title('Average Profits of Movies over Time', weight='bold').set_fontsize('18')
     plt.xlabel('Year', weight='bold')
     plt.ylabel('Profit (in $100,000)', weight='bold')
     plt.ticklabel_format(style='plain', axis='y')
 
-    plt.savefig(('line_plot_' + production + '.png'), bbox_inches='tight')
+    plt.savefig(('movie_profits'), bbox_inches='tight')
