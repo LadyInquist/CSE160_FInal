@@ -17,14 +17,14 @@ def avg_profit(data, production):
     prod_data = prod_data.sort_values(by='profit', ascending=False)
     prod_data = prod_data.head(10)
 
-    sns.catplot(x=production, y="profit", data=prod_data, kind="bar")
+    sns.catplot(x=production, y="profit", data=prod_data, kind="bar", height=5, aspect=2)
 
     production_label = production.capitalize()
 
-    plt.title("Average Profit for Each " + production_label)
-    plt.xlabel(production_label)
+    plt.title("Average Profit for Each " + production_label, weight='bold').set_fontsize('18')
+    plt.xlabel(production_label, weight='bold')
     plt.xticks(rotation=45, horizontalalignment='right')
-    plt.ylabel('Profit (in $100,000)')
+    plt.ylabel('Profit (in $100,000)', weight='bold')
     plt.ticklabel_format(style='plain', axis='y')
 
     plt.savefig((production + '_avg_profit.png'), bbox_inches='tight')
