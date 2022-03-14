@@ -4,13 +4,14 @@ import matplotlib.pyplot as plt
 import datetime as dt
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import r2_score
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 
 def ml_regressor(data):
-    data = data[["budget", "score", "company", "director"]]
+    data = data[["budget", "score", "company", "director", "rating", "genre", "runtime", "gross", "votes"]]
     features = data.loc[:, data.columns != "score"]
     features = pd.get_dummies(features)
     labels = data["score"]
@@ -20,12 +21,12 @@ def ml_regressor(data):
     model.fit(features_train, labels_train)
     # Compute training accuracy
     train_predictions = model.predict(features_train)
-    print('Train MSE:',
-            mean_squared_error(labels_train, train_predictions))
+    print('Train R2:',
+            r2_score(labels_train, train_predictions))
     # Compute test accuracy
     test_predictions = model.predict(features_test)
-    print('Test  MSE:',
-            mean_squared_error(labels_test, test_predictions))
+    print('Test  R2:',
+            r2_score(labels_test, test_predictions))
 
 def data_preprocess(data):
     r = data['rating'] == "R"
@@ -37,13 +38,13 @@ def data_preprocess(data):
     features = pd.get_dummies(features)
     labels = data["score"]
     mse_scores = {}
-    for i in range(0, 1, 0.1):
+    for i in range(1, 5, 1):
         features_train, features_test, labels_train, labels_test = \
-            train_test_split(features, labels, test_size=i)
+            train_test_split(features, labels, test_size=i/10)
         model = DecisionTreeRegressor()
         model.fit(features_train, labels_train)
         test_predictions = model.predict(features_test)
-        mse_scores[i] = mean_squared_error(labels_test, test_predictions)
+        mse_scores[i] = r2_score(labels_test, test_predictions)
     print(mse_scores)
 
 def ml_classifier(self):
