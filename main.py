@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sns
 from rating_model import ml_regressor
-from average_profit import avg_profit
+from average_profits import avg_profit
 
 def main():
     data = pd.read_csv("movies.csv")
