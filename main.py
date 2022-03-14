@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sns
 from rating_model import ml_regressor
-from research_question_2
+from research_question_2 import *
 
 def main():
     data = pd.read_csv("movies.csv")
