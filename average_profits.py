@@ -3,11 +3,14 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 
-sns.set()
+# sns.set()
 
 
 def avg_profit(data, production):
-    data['profit'] = data['gross'] - data['budget']
+    # Giving an acronym to the company, "Beijing Dengfeng International Culture Communications Company"
+    data['company'] = data['company'].replace(['Beijing Dengfeng International Culture Communications Company'], 'BDICCC')
+
+    data['profit'] = (data['gross'] - data['budget']) / 100000
     prod_data = data[[production, 'profit']]
     prod_data = prod_data.groupby([production]).mean()
     prod_data.reset_index(inplace = True)
@@ -20,10 +23,9 @@ def avg_profit(data, production):
 
     plt.title("Average Profit for Each " + production_label)
     plt.xlabel(production_label)
-    plt.xticks(rotation = 90)
-    plt.ylabel('Profit ($)')
-    # plt.yticks(np.arange(2, 1000000))
-    plt.ylim(bottom=100000)
+    plt.xticks(rotation=45, horizontalalignment='right')
+    plt.ylabel('Profit (in $100,000)')
+    plt.ticklabel_format(style='plain', axis='y')
 
     plt.savefig((production + '_avg_profit.png'), bbox_inches='tight')
 
