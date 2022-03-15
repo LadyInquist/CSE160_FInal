@@ -1,5 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as py
+import matplotlib.pyplot as plt
 
 """
 CSE 163
@@ -7,8 +7,9 @@ Ethan Hu
 Verifies the plotly graphing functions by making
 the same graphs without plotly. Assumes that
 the requisite libaries are installed and that there is a
-valid .csv of IMDB data.
+valid csv of IMDB data.
 """
+
 
 def main():
     data = pd.read_csv("movies.csv")
@@ -27,6 +28,7 @@ def bar_test(data):
     data.reset_index(inplace=True)
     data = data.sort_values("score")
     data.plot(x="genre", y="score", kind="bar")
+    plt.savefig("bar_test.png")
 
 
 def scatter_test(data):
@@ -36,6 +38,7 @@ def scatter_test(data):
     given dataframe is properly preprocessed.
     """
     data.plot(x="budget", y="score", kind="scatter")
+    plt.savefig("scatter_test.png")
 
 
 if __name__ == '__main__':
