@@ -1,19 +1,21 @@
 import pandas as pd
 import seaborn as sns
-from rating_model import ml_regressor
+from rating_model import *
 from research_question_2 import *
 
 
 def main():
     data = pd.read_csv("movies.csv")
     data = data.dropna()
-    ml_regressor(data, ["budget", "score", "company", "director"])
+    #find_max_depth(data)
+    
+    score_predictor(data, ["budget", "score", "company", "director"])
     print()
-    ml_regressor(data , ["budget", "score", "company", "director", "genre",
-                 "runtime"])
+    score_predictor(data, ["budget", "score", "company", "director", "genre",
+                "year", "runtime"])
     print()
-    ml_regressor(data , ["budget", "score", "company", "director", "genre",
-                "year", "runtime", "rating", "gross", "year"])
+    score_predictor(data, ["budget", "score", "company", "director", "genre",
+                "year", "runtime", "gross", "year", "star"])
     """
     # calling visualizations for research question 2
     avg_profit(data, "company")
