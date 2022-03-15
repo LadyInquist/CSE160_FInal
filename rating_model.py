@@ -10,8 +10,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 
-def ml_regressor(data):
-    data = data[["budget", "score", "company", "director", "rating", "genre", "runtime", "gross", "votes"]]
+def ml_regressor(data, x):
+    data = data[x]
     features = data.loc[:, data.columns != "score"]
     features = pd.get_dummies(features)
     labels = data["score"]
@@ -21,12 +21,17 @@ def ml_regressor(data):
     model.fit(features_train, labels_train)
     # Compute training accuracy
     train_predictions = model.predict(features_train)
+    print('Train MSE:',
+          mean_squared_error(labels_train, train_predictions))
     print('Train R2:',
-            r2_score(labels_train, train_predictions))
+          r2_score(labels_train, train_predictions))
     # Compute test accuracy
     test_predictions = model.predict(features_test)
+    print('Test  MSE:',
+            mean_squared_error(labels_test, test_predictions))
     print('Test  R2:',
             r2_score(labels_test, test_predictions))
+    #print('Test MSE:', mean_squared_error(labels_test, train_predictions))
 
 def data_preprocess(data):
     r = data['rating'] == "R"

@@ -6,8 +6,14 @@ from research_question_2 import *
 def main():
     data = pd.read_csv("movies.csv")
     data = data.dropna()
-    ml_regressor(data)
-
+    ml_regressor(data, ["budget", "score", "company", "director"])
+    print()
+    ml_regressor(data , ["budget", "score", "company", "director", "genre",
+                 "runtime"])
+    print()
+    ml_regressor(data , ["budget", "score", "company", "director", "genre",
+                "year", "runtime", "rating", "gross", "year"])
+    """
     # calling visualizations for research question 2
     avg_profit(data, "company")
     avg_profit(data, "director")
@@ -17,7 +23,7 @@ def main():
     profits_by_year(data, "writer")
     
     print("testing part 2")
-
+    """
 
 if __name__ == '__main__':
     main()
