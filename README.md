@@ -2,11 +2,12 @@
 
 To run this program, run main.py. Make sure that pandas, plotly, seaborne, and
 other requisite libaries are installed.
-Output will be images in the same folder.
+Output will be visualizations in the repository - examples to compare to are
+in the visualizations folder.
 
 ## Content
 
-The dataset (Movies.csv) includes 7,668 movies from 1986-2020 (220 movies per year). 
+The dataset (Movies.csv) includes 7,668 movies from 1986-2020 (220 movies per year).
 It contains several columns, which can be input as parameters for functions
 to change what visualizations display. Assume that the columns are categorical
 unless stated otherwise.
