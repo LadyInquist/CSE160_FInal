@@ -1,13 +1,17 @@
-Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
-CSE 163
+# CSE 163: Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
 
 To run this program, run main.py. Make sure that pandas, plotly, seaborne, and
 other requisite libaries are installed.
 Output will be images in the same folder.
 
-Movies.csv has several columns, which can be input as parameters for functions
+## Content
+
+The dataset (Movies.csv) includes 7,668 movies from 1986-2020 (220 movies per year). 
+It contains several columns, which can be input as parameters for functions
 to change what visualizations display. Assume that the columns are categorical
 unless stated otherwise.
+
+Each movie has the following attributes:
 
 <ul>
   <li> name: The name of the movie</li>
