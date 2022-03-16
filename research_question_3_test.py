@@ -1,3 +1,10 @@
+
+"""
+CSE 163
+Raj Chaphekar
+Tests to make sure the mse model is within a reasonable range
+and the best max_depth
+"""
 import pandas as pd
 from research_question_3 import find_max_depth
 from research_question_3 import score_predictor

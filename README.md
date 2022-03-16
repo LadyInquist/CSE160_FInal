@@ -11,6 +11,7 @@ in the visualizations folder.
   <li>Seaborne</li>
   <li>Matplotlib</li>
   <li>Plotly</li>
+  <li>Statsmodels</li>
   <li>Sklearn</li>
 </ul>
 
