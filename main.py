@@ -1,3 +1,13 @@
+"""
+Ethan Hu, Raj Chaphekar, Angelina Lum
+CSE 163
+
+Main file for project. Imports and runs the nessasary
+code to answer 3 research questions. Assumes that
+requisite libaries are installed and that the valid
+IMDB csv is present.
+"""
+
 from numpy import average
 import pandas as pd
 import seaborn as sns
@@ -22,7 +32,7 @@ def main():
     print()
     score_predictor(data, ["budget", "score", "company", "director", "genre",
                 "year", "runtime", "gross", "year", "star"])
-    
+
     # research question 2
     avg_profit(data, "company")
     avg_profit(data, "director")
