@@ -8,12 +8,11 @@ requisite libaries are installed and that the valid
 IMDB csv is present.
 """
 
-from numpy import average
 import pandas as pd
-import seaborn as sns
-from research_question_1 import *
-from research_question_2 import *
-from research_question_3 import score_predictor
+from research_question_1 import rate_scatter
+from research_question_1 import rate_bar
+from research_question_2 import avg_profit
+from research_question_2 import profits_by_year
 from research_question_3 import average_score
 
 
@@ -25,13 +24,6 @@ def main():
     # research question 1
     rate_scatter(data, "runtime", "country", crop="TOP")
     rate_bar(data, "genre")
-    score_predictor(data, ["budget", "score", "company", "director"])
-    print()
-    score_predictor(data, ["budget", "score", "company", "director", "genre",
-                "year", "runtime"])
-    print()
-    score_predictor(data, ["budget", "score", "company", "director", "genre",
-                "year", "runtime", "gross", "year", "star"])
 
     # research question 2
     avg_profit(data, "company")
