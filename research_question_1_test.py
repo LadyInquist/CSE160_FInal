@@ -1,6 +1,3 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-
 """
 CSE 163
 Ethan Hu
@@ -9,6 +6,9 @@ the same graphs without plotly. Assumes that
 the requisite libaries are installed and that there is a
 valid csv of IMDB data.
 """
+
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def main():

@@ -30,7 +30,7 @@ def main():
     data = pd.read_csv("movies.csv")
     data_2021 = pd.read_csv("movies_2021.csv")
     data = data.dropna()
-    # testing MSE to be at least under 1 and that train has less error than
+    # testing MSE to be at least under 1.75 and that train has less error than
     # test
     main_MSE = score_predictor(data, ["star", "director", "company",
                                "score", "rating", "genre", "runtime", "gross"])

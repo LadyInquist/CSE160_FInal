@@ -11,23 +11,12 @@ as this file. CROP_AMOUNT dictates the amount of top or bottom
 movies that the rating_scatter pulls from.
 """
 
-import pandas as pd
 import plotly.express as px
 import plotly.offline as off
 
-CROP_AMOUNT = 500 # amount of rows that a crop takes
 
-
-def main():
-    """
-    Primary method, change the second parameter of
-    rating_scatter and rating_bar to column names
-    to generate plots related to them.
-    """
-    data = pd.read_csv("movies.csv")
-    data = data.dropna()
-    rate_scatter(data, "runtime", "country", crop="TOP")
-    rate_bar(data, "genre")
+# amount of rows that a crop takes
+CROP_AMOUNT = 500
 
 
 def rate_bar(data, second_factor):
@@ -89,7 +78,3 @@ def rate_scatter(data, second_factor="budget", third_factor="genre", crop=""):
     file_name = crop + "_" + third_factor + "_and_" + second_factor + ".html"
     print(file_name)
     off.plot(fig, filename=file_name)
-
-
-if __name__ == '__main__':
-    main()
