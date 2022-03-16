@@ -22,7 +22,7 @@ def main():
     data = data.dropna()
 
     # research question 1
-    rate_scatter(data, "runtime", "country", crop="TOP")
+    rate_scatter(data, "runtime", "country")
     rate_bar(data, "genre")
 
     # research question 2
