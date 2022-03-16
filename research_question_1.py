@@ -43,6 +43,7 @@ def rate_scatter(data, second_factor="budget", third_factor="genre", crop=""):
     Creates an .html page containing an interactive scatterplot. This graph is
     based on an imdb dataframe, data,
     alongside 2 columns within that dataframe, third_factor.
+    Crop can indicate top or bottom to only show the top or bottom values.
     Assumes that the given dataset is the correct IMDB dataset,
     second_factor is a column with non-categorical values,
     and that second and third_factor are valid column names. Outputs it as an
