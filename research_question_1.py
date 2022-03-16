@@ -26,11 +26,11 @@ def main():
     """
     data = pd.read_csv("movies.csv")
     data = data.dropna()
-    rating_scatter(data, "runtime", "country", crop="TOP")
-    rating_bar(data, "genre")
+    rate_scatter(data, "runtime", "country", crop="TOP")
+    rate_bar(data, "genre")
 
 
-def rating_bar(data, second_factor):
+def rate_bar(data, second_factor):
     """
     Creates an .html page containing an interactive bar plot. This graph is
     based on an imdb dataframe, data, alongside a column within that dataframe,
@@ -49,11 +49,12 @@ def rating_bar(data, second_factor):
     off.plot(fig, filename=file_name)
 
 
-def rating_scatter(data, second_factor="budget", third_factor="genre", crop=""):
+def rate_scatter(data, second_factor="budget", third_factor="genre", crop=""):
     """
     Creates an .html page containing an interactive scatterplot. This graph is
-    based on an imdb dataframe, data, alongside 2 columns within that dataframe,
-    third_factor. Assumes that the given dataset is the correct IMDB dataset,
+    based on an imdb dataframe, data,
+    alongside 2 columns within that dataframe, third_factor.
+    Assumes that the given dataset is the correct IMDB dataset,
     second_factor is a column with non-categorical values,
     and that second and third_factor are valid column names. Outputs it as an
     image, with the name dependent on the column.
@@ -67,7 +68,7 @@ def rating_scatter(data, second_factor="budget", third_factor="genre", crop=""):
     else:
         crop = "All"
     title_concat = second_factor + " and " + third_factor +\
-         " as factors in " + crop + " scored movies"
+        " as factors in " + crop + " scored movies"
     title_concat = title_concat.capitalize()
     fig = px.scatter(data,
                      x=second_factor,
@@ -83,7 +84,7 @@ def rating_scatter(data, second_factor="budget", third_factor="genre", crop=""):
         )
     )
     fig.update_yaxes(
-        range=[0,10]
+        range=[0, 10]
     )
     file_name = crop + "_" + third_factor + "_and_" + second_factor + ".html"
     print(file_name)

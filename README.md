@@ -1,11 +1,20 @@
 # CSE 163: Raj Chaphekar (AB), Ethan Hu (AB), Angelina Lum (AC)
 
-To run this program, run main.py. Make sure that pandas, plotly, seaborne, and
-other requisite libaries are installed.
+To run this program, run main.py. Make sure that pandas, plotly, seaborne, and other requisite libaries are installed.
+
 Output will be visualizations in the repository - examples to compare to are
 in the visualizations folder.
 
-## Content
+## Requisite Libraries
+<ul>
+  <li>Pandas</li>
+  <li>Seaborne</li>
+  <li>Matplotlib</li>
+  <li>Plotly</li>
+  <li>Sklearn</li>
+</ul>
+
+## Dataset
 
 The dataset (Movies.csv) includes 7,668 movies from 1986-2020 (220 movies per year).
 It contains several columns, which can be input as parameters for functions
@@ -31,3 +40,9 @@ Each movie has the following attributes:
   <li>company: The company that published the movie</li>
   <li>runtime: The runtime of the movie, in minutes</li>
 </ul>
+
+## Verification
+Verification files include research_question_1_test.py and
+research_question_2__test.xlsx. Please refer to the project writeup
+for the verification process.
+

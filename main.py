@@ -4,6 +4,7 @@ import seaborn as sns
 from research_question_3 import score_predictor
 from research_question_3 import average_score
 from research_question_2 import *
+from research_question_1 import *
 
 
 def main():
@@ -22,12 +23,22 @@ def main():
     print(average_score(data_2021, ["rating", "gross", "star", "director",
                         "company", "score", "rating", "genre"]))
 
+    rate_scatter(data, "runtime", "country", crop="TOP")
+    rate_bar(data, "genre")
+    score_predictor(data, ["budget", "score", "company", "director"])
+    print()
+    score_predictor(data, ["budget", "score", "company", "director", "genre",
+                "year", "runtime"])
+    print()
+    score_predictor(data, ["budget", "score", "company", "director", "genre",
+                "year", "runtime", "gross", "year", "star"])
     """
     # calling visualizations for research question 2
     avg_profit(data, "company")
     avg_profit(data, "director")
     avg_profit(data, "writer")
     profits_by_year(data)
+    print("testing part 2")
     """
     print("testing part 2")
 
