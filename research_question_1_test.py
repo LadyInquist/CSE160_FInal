@@ -21,7 +21,7 @@ def main():
 def bar_test(data):
     """
     Given an IMDB dataframe, makes a bar plot to compare
-    with output from plotly.py. Assumes that the
+    with output from research_question_1.py. Assumes that the
     given dataframe is properly preprocessed.
     """
     data = data.groupby("genre").mean()
@@ -34,7 +34,7 @@ def bar_test(data):
 def scatter_test(data):
     """
     Given an IMDB dataframe, makes a bar plot to compare
-    with output from plotly.py. Assumes that the
+    with output from research_question_1.py. Assumes that the
     given dataframe is properly preprocessed.
     """
     data.plot(x="budget", y="score", kind="scatter")
