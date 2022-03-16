@@ -5,20 +5,20 @@ from research_question_3 import plot_max
 
 
 def potential_range(mse_scores):
+    """
+    Validity check that will check if the passed in MSE score is below the
+    threshold of 1.75 score that would make the model to error prone
+    """
     if mse_scores < 1.75:
         print("Valid!")
     else:
         print("Make model more optimal")
 
 
-def compare_scores():
-    for i in range(10):
-        print("hi")
-
-
 def finding_depth(data):
     """
-    Calls the functions in rating
+    Calls the functions in reasearch_question_3 in order to help find the
+    optimal max_depth.
     """
     ml_data = find_max_depth(data, ["star", "director", "company", "score",
                              "rating", "genre", "runtime", "gross"])
